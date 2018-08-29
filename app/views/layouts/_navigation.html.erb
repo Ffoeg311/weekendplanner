@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Home <span class="sr-only">(current)</span></a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to 'Trip Planning', trips_path, class: "nav-link" %></li>
+          <%= link_to 'Destinations', destinations_path, class: "nav-link" %></li>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Logged in as <strong><%= current_user.email %></strong>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'Edit profile', edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item active">
+          <%= link_to 'Sign in', new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'Sign up', new_user_registration_path, class: "nav-link" %></li>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

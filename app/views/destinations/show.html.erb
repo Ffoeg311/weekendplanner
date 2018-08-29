@@ -1,0 +1,17 @@
+<p>
+  <strong>Title:</strong>
+  <%= @destination.title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @destination.destination_type %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @destination.note %>
+</p>
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>
